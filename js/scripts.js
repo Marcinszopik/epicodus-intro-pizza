@@ -3,11 +3,11 @@
 // ================================
 
 // Pizza Constructor, represents a single pizza
-function Pizza(pizzaSize, cheese, meatToppings, vegToppings) {
+function Pizza(pizzaSize, cheese) {
   this.pizzaSize = pizzaSize;
   this.cheese = cheese;
-  this.meatToppings = meatToppings;
-  this.vegToppings = vegToppings;
+  this.meatToppings = [];
+  this.vegToppings = [];
   // this.cost (created in the refreshCost method)
 }
 Pizza.prototype.addMeat = function(meat) {
@@ -77,12 +77,24 @@ var createCustomerOrder = function() {
   var customerPhone = $('#customer-phone').val();
   var customerCashCredit = $('input[name="cash-credit"]:checked').val();
 
-  var customerOrder = new Order(customerName, customerAddress, customerPhone, customerCashCredit);
-  return customerOrder;
+  return new Order(customerName, customerAddress, customerPhone, customerCashCredit);
+}
+var createPizza = function() {
+  var pizzaSize = $('input[name="pie-size"]:checked').val();
+  var cheese = $('input[name="cheese-options"]:checked').val();
+  var newPizza = new Pizza(pizzaSize, cheese);
+  $('input[name="meat-toppings"]:checked').each(function() {
+    newPizza.addMeat($(this).val());
+  });
+  var vegToppings = [];
+  $('input[name="veg-toppings"]:checked').each(function() {
+    newPizza.addVeg($(this).val());
+  });
+  return newPizza;
 }
 
 $(document).ready(function() {
-  var customerOrder;
+  var customerOrder = new Order();
 
   // event handler for begin ordering button
   $('.launch-order button').click(function() {
@@ -93,13 +105,18 @@ $(document).ready(function() {
   $('.order-information-input form').submit(function(event) {
     event.preventDefault();
     customerOrder = createCustomerOrder();
+    console.log(customerOrder);
     nextDiv('.order-information-input', '.order-pizza-input');
   });
+
   // event handler for add pizza
   $('.order-pizza-input form').submit(function(event) {
     event.preventDefault();
+    var newPizza = createPizza();
+    customerOrder.addPizza(newPizza);
     nextDiv('.order-pizza-input', '.order-summary');
   });
+
   // event handler for add another pizza
   $('#add-another-pizza').click(function(event) {
     event.preventDefault();
