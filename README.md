@@ -32,7 +32,7 @@ _No special installation is required. All needed resources are included in the r
 
 _To setup this project, clone the repository to a local directory and open index.html in a standard web browser._
 
-_You may also view a live version of this site on [GitHub Pages](https://joekarasek.github.io/epicodus-intro-pizza.git)._
+_You may also view a live version of this site on [GitHub Pages](https://joekarasek.github.io/epicodus-intro-pizza)._
 
 ## Known Bugs
 
