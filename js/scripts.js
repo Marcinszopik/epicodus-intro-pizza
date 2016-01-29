@@ -71,26 +71,28 @@ var nextDiv = function(toHide, toShow) {
   $(toHide).hide();
   $(toShow).show();
 }
+var createCustomerOrder = function() {
+  var customerName = $('#customer-name').val();
+  var customerAddress = $('#customer-street').val() + ', ' + $('#customer-city').val() + ', ' + $('#customer-zip-code').val();
+  var customerPhone = $('#customer-phone').val();
+  var customerCashCredit = $('input[name="cash-credit"]:checked').val();
+
+  var customerOrder = new Order(customerName, customerAddress, customerPhone, customerCashCredit);
+  return customerOrder;
+}
 
 $(document).ready(function() {
+  var customerOrder;
 
   // event handler for begin ordering button
   $('.launch-order button').click(function() {
     nextDiv('.launch-order', '.order-information-input');
   });
+
   // event handler for customer information submit
   $('.order-information-input form').submit(function(event) {
     event.preventDefault();
-
-    var customerName = $('#customer-name').val();
-    var customerAddress = $('#customer-street').val() + ', ' + $('#customer-city').val() + ', ' + $('#customer-zip-code').val();
-    var customerPhone = $('#customer-phone').val();
-    var customerCashCredit = $('input[name="cash-credit"]:checked').val();
-
-    var customerOrder = new Order(customerName, customerAddress, customerPhone, customerCashCredit);
-    console.log(customerOrder);
-
-
+    customerOrder = createCustomerOrder();
     nextDiv('.order-information-input', '.order-pizza-input');
   });
   // event handler for add pizza
