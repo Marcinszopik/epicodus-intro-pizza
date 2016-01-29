@@ -73,7 +73,6 @@ var nextDiv = function(toHide, toShow) {
 }
 
 $(document).ready(function() {
-  var customerOrder = new Order();
 
   // event handler for begin ordering button
   $('.launch-order button').click(function() {
@@ -82,6 +81,16 @@ $(document).ready(function() {
   // event handler for customer information submit
   $('.order-information-input form').submit(function(event) {
     event.preventDefault();
+
+    var customerName = $('#customer-name').val();
+    var customerAddress = $('#customer-street').val() + ', ' + $('#customer-city').val() + ', ' + $('#customer-zip-code').val();
+    var customerPhone = $('#customer-phone').val();
+    var customerCashCredit = $('input[name="cash-credit"]:checked').val();
+
+    var customerOrder = new Order(customerName, customerAddress, customerPhone, customerCashCredit);
+    console.log(customerOrder);
+
+
     nextDiv('.order-information-input', '.order-pizza-input');
   });
   // event handler for add pizza
