@@ -25,6 +25,7 @@
       <div class="order-launch">
         <h3>Order Now!</h3>
         <p>We're ready to take your order and deliver at no extra cost. Just click the button below to begin</p>
+        <button type="submit">Begin Order</button>
       </div>
       <div class="order-information-input">
         <h3>Enter your information.</h3>
@@ -41,20 +42,62 @@
           <input id="customer-phone" type="text">
           <label for="customer-cash-or-credit">Cash or Credit</label>
           <input id="customer-cash-or-credit" type="text">
+          <button type="submit">Submit</button>
         </form>
       </div>
       <div class="pizza-input">
-        <h3>Add a pizza to order.</h3>
-        <form action="">
-          <label for=""></label>
-          <input type="text">
-          <label for=""></label>
-          <input type="text">
-          <label for=""></label>
-          <input type="text">
-          <label for=""></label>
-          <input type="text">
+        <h3>Add a pizza to your order.</h3>
+        <form>
+          <div class="size">
+            <h4>Pie Size:</h4>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="small"> Small</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="medium" checked> Medium</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="large"> Large</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="extra large"> Extra Large</label>
+          </div>
+          <div class="meat-toppings">
+            <h4>Meats:</h4>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Pepperoni">Pepperoni
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Sausage">Sausage
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Ham">Ham
+            </label>
+          </div>
+          <div class="veg-toppings">
+            <h4>Veggies:</h4>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Olives">Olives
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Tomatoes">Tomatoes
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Onions">Onions
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Green Peppers">Green Peppers
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="Pineapple">Pineapple
+            </label>
+          </div>
+          <div class="cheese">
+            <h4>Cheese:</h4>
+            <label for="" class="checkbox-inline"><input type="radio" name="cheese-options" value="regular" checked>Regular</label>
+            <label for="" class="checkbox-inline"><input type="radio" name="cheese-options" value="extra">Extra Cheese <em>(add $1)</em></label>
+            <label for="" class="checkbox-inline"><input type="radio" name="cheese-options" value="none">No Cheese</label>
+          </div>
+          <button type="submit">Add Pizza</button>
         </form>
+      </div>
+      <div class="order-summary">
+        <h3>Your order.</h3>
+        <button>Add another Pizza</button>
+        <button>Checkout Out</button>
       </div>
     </div>
   </body>
