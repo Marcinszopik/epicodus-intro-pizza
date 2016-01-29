@@ -27,7 +27,7 @@
         <p>We're ready to take your order and deliver at no extra cost. Just click the button below to begin</p>
         <button type="button">Begin Order</button>
       </div>
-      <div class="order-information-input">
+      <div class="order-information-input initially-hidden">
         <h3>Enter your information.</h3>
         <form>
           <label for="customer-name">Name: </label>
@@ -45,7 +45,7 @@
           <button type="submit">Submit</button>
         </form>
       </div>
-      <div class="order-pizza-input">
+      <div class="order-pizza-input initially-hidden">
         <h3>Add a pizza to your order.</h3>
         <form>
           <div class="size">
@@ -94,10 +94,15 @@
           <button type="submit">Add Pizza</button>
         </form>
       </div>
-      <div class="order-summary">
+      <div class="order-summary initially-hidden">
         <h3>Your order.</h3>
         <button id="add-another-pizza">Add another Pizza</button>
         <button id="checkout-order">Checkout Out</button>
+      </div>
+      <div class="checked-out  initially-hidden">
+        <h3>Your order is on its way!</h3>
+        <p>Click below to place a new order.</p>
+        <button type="button" id="new-order">New Order</button>
       </div>
     </div>
   </body>

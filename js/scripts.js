@@ -67,41 +67,42 @@ Order.prototype.determineTotalCost = function() {
 //     User Interface Logic
 // ================================
 
-
+var nextDiv = function(toHide, toShow) {
+  $(toHide).hide();
+  $(toShow).show();
+}
 
 $(document).ready(function() {
   var customerOrder = new Order();
 
   // event handler for begin ordering button
   $('.launch-order button').click(function() {
-    alert("button works");
+    nextDiv('.launch-order', '.order-information-input');
   });
   // event handler for customer information submit
   $('.order-information-input form').submit(function(event) {
     event.preventDefault();
-    alert("button works");
+    nextDiv('.order-information-input', '.order-pizza-input');
   });
   // event handler for add pizza
   $('.order-pizza-input form').submit(function(event) {
     event.preventDefault();
-    alert("button works");
+    nextDiv('.order-pizza-input', '.order-summary');
   });
   // event handler for add another pizza
   $('#add-another-pizza').click(function(event) {
     event.preventDefault();
-    alert("button works");
+    nextDiv('.order-summary', '.order-pizza-input');
   });
   // event handler for checkout order
   $('#checkout-order').click(function(event) {
     event.preventDefault();
-    alert("button works");
+    nextDiv('.order-summary', '.checked-out');
   });
   // event handler for new order/reset site
-  // $('').submit(function(event) {
-  //   event.preventDefault();
-  //   alert("button works");
-  // });
-
-
+  $('#new-order').click(function(event) {
+    event.preventDefault();
+    nextDiv('.checked-out', '.launch-order');
+  });
 
 });
