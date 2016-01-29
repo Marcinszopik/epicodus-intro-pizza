@@ -66,3 +66,42 @@ Order.prototype.determineTotalCost = function() {
 // ================================
 //     User Interface Logic
 // ================================
+
+
+
+$(document).ready(function() {
+  var customerOrder = new Order();
+
+  // event handler for begin ordering button
+  $('.launch-order button').click(function() {
+    alert("button works");
+  });
+  // event handler for customer information submit
+  $('.order-information-input form').submit(function(event) {
+    event.preventDefault();
+    alert("button works");
+  });
+  // event handler for add pizza
+  $('.order-pizza-input form').submit(function(event) {
+    event.preventDefault();
+    alert("button works");
+  });
+  // event handler for add another pizza
+  $('#add-another-pizza').click(function(event) {
+    event.preventDefault();
+    alert("button works");
+  });
+  // event handler for checkout order
+  $('#checkout-order').click(function(event) {
+    event.preventDefault();
+    alert("button works");
+  });
+  // event handler for new order/reset site
+  // $('').submit(function(event) {
+  //   event.preventDefault();
+  //   alert("button works");
+  // });
+
+
+
+});
