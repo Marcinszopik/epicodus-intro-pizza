@@ -118,6 +118,14 @@ var populatePizzaList = function(pizza) {
   pizza.vegToppings.forEach(function(vegTopping) {
     $('.pizza-list .pizza-list-veg-toppings').last().append('<li>'+vegTopping+'</li>');
   });
+
+  $('.pizza').click(function() {
+      $(this).find('.pizza-info-toggle').toggle();
+  });
+  $('.pizza-info-toggle').click(function() {
+      $(this).find('.pizza-info-toggle').toggle();
+  });
+  
 }
 var populateTotalPrice = function(customerOrder) {
   customerOrder.determineTotalCost();

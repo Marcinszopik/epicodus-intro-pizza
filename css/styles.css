@@ -13,4 +13,5 @@
 
 .pizza-info-toggle {
   display: none;
+  cursor: pointer;
 }
