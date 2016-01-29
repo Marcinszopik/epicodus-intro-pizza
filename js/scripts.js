@@ -103,13 +103,14 @@ var resetPizzaForm = function() {
 }
 var populatePizzaList = function(pizza) {
   $('.pizza-list').append('<div class="pizza">' +
-                            '<h4><span class="pizza-list-size">One '+pizza.pizzaSize+' pizza</span></h4>' +
+                            '<h4><span class="pizza-list-size">- One '+pizza.pizzaSize+' pizza</span></h4>' +
                             '<div class="pizza-info-toggle">' +
                               '<p>Cheese: <span class="pizza-list-cheese">'+pizza.cheese+'</span></p>' +
                               '<p>Meat toppings: </p>' +
                               '<ul class="pizza-list-meat-toppings"></ul>' +
                               '<p>Veggie toppings: </p>' +
                               '<ul class="pizza-list-veg-toppings"></ul>' +
+                              '<p>Cost of this pizza: $<span>'+pizza.cost.toFixed(2)+'</span></p>'+
                             '</div>' +
                           '</div>');
   pizza.meatToppings.forEach(function(meatTopping) {
@@ -119,13 +120,13 @@ var populatePizzaList = function(pizza) {
     $('.pizza-list .pizza-list-veg-toppings').last().append('<li>'+vegTopping+'</li>');
   });
 
-  $('.pizza').click(function() {
+  $('.pizza').last().click(function() {
       $(this).find('.pizza-info-toggle').toggle();
   });
-  $('.pizza-info-toggle').click(function() {
+  $('.pizza-info-toggle').last().click(function() {
       $(this).find('.pizza-info-toggle').toggle();
   });
-  
+
 }
 var populateTotalPrice = function(customerOrder) {
   customerOrder.determineTotalCost();
@@ -153,7 +154,7 @@ $(document).ready(function() {
     var thisPizza = createPizza();
     customerOrder.addPizza(thisPizza);
     populatePizzaList(thisPizza);
-    $("#pizza-list-total-cost").text(populateTotalPrice(customerOrder));
+    $("#pizza-list-total-cost").text('$ '+ populateTotalPrice(customerOrder).toFixed(2));
     nextDiv('.order-pizza-input', '.order-summary');
   });
 
