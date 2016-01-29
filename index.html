@@ -62,13 +62,13 @@
         <form>
           <div class="size form-group">
             <h4>Pie Size:</h4>
-            <label class="checkbox-inline"><input type="radio" name="pie-size" value="small"> Small</label>
-            <label class="checkbox-inline"><input type="radio" name="pie-size" value="medium" checked> Medium</label>
-            <label class="checkbox-inline"><input type="radio" name="pie-size" value="large"> Large</label>
-            <label class="checkbox-inline"><input type="radio" name="pie-size" value="extra large"> Extra Large</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="small"> Small ($7)</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="medium" checked> Medium ($9)</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="large"> Large ($11)</label>
+            <label class="checkbox-inline"><input type="radio" name="pie-size" value="extra large"> Extra Large ($13)</label>
           </div>
           <div class="meat-toppings  form-group">
-            <h4>Meats:</h4>
+            <h4>Meats: ($1.25 each) </h4>
             <label class="checkbox-inline">
               <input type="checkbox" name="meat-toppings" value="Pepperoni">Pepperoni
             </label>
@@ -95,7 +95,7 @@
             </label>
           </div>
           <div class="veg-toppings  form-group">
-            <h4>Veggies:</h4>
+            <h4>Veggies: ($0.75 each) </h4>
             <label class="checkbox-inline">
               <input type="checkbox" name="veg-toppings" value="Olives">Olives
             </label>
@@ -126,9 +126,9 @@
           </div>
           <div class="cheese  form-group">
             <h4>Cheese:</h4>
-            <label class="checkbox"><input type="radio" name="cheese-options" value="regular" checked>Regular</label>
-            <label class="checkbox"><input type="radio" name="cheese-options" value="extra">Extra Cheese <em>(add $1)</em></label>
-            <label class="checkbox"><input type="radio" name="cheese-options" value="none">No Cheese</label>
+            <label class="checkbox"><input type="radio" name="cheese-options" value="regular" checked>  Regular</label>
+            <label class="checkbox"><input type="radio" name="cheese-options" value="extra">  Extra Cheese <em>(add $1)</em></label>
+            <label class="checkbox"><input type="radio" name="cheese-options" value="none">  No Cheese</label>
           </div>
           <button type="submit" class="btn btn-success">Add Pizza</button>
         </form>
@@ -145,6 +145,8 @@
         <h3>Your order is on its way!</h3>
         <p>Click below to place a new order.</p>
         <button type="button" class="btn btn-success" id="new-order">New Order</button>
+        <p>This site was constructed to demonstrate the use of Object Oriented Programming. Click the button below to log the complete customer order object to the console. Customer order object includes all customer information, pizzas, and totalCost. (open the console with alt-cmd-j in chrome)</p>
+        <buton class="btn btn-default" id="console-log">Log Object to Console</buton>
       </div>
     </div>
   </body>

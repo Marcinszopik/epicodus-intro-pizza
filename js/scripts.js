@@ -159,23 +159,25 @@ $(document).ready(function() {
   });
 
   // event handler for add another pizza
-  $('#add-another-pizza').click(function(event) {
-    event.preventDefault();
+  $('#add-another-pizza').click(function() {
     nextDiv('.order-summary', '.order-pizza-input');
   });
 
   // event handler for checkout order
-  $('#checkout-order').click(function(event) {
-    event.preventDefault();
+  $('#checkout-order').click(function() {
     nextDiv('.order-summary', '.checked-out');
   });
 
   // event handler for new order/reset site
-  $('#new-order').click(function(event) {
-    event.preventDefault();
+  $('#new-order').click(function() {
     customerOrder = new Order();
     $('.pizza-list').empty();
     nextDiv('.checked-out', '.launch-order');
   });
+
+  // event handler for log object to console
+  $('#console-log').click(function() {
+    console.log(customerOrder);
+  })
 
 });
