@@ -173,6 +173,8 @@ $(document).ready(function() {
   // event handler for new order/reset site
   $('#new-order').click(function(event) {
     event.preventDefault();
+    customerOrder = new Order();
+    $('.pizza-list').empty();
     nextDiv('.checked-out', '.launch-order');
   });
 
