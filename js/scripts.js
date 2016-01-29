@@ -101,7 +101,22 @@ var resetPizzaForm = function() {
   $('input[name="meat-toppings"]:checked').attr("checked", false);
   $('input[name="veg-toppings"]:checked').attr("checked", false);
 }
-
+var populatePizzaList = function(pizza) {
+  $('.pizza-list').append('<div class="pizza">' +
+                            '<h4><span class="pizza-list-size">'+pizza.pizzaSize+'</span></h4>' +
+                            '<p>Cheese: <span class="pizza-list-cheese">'+pizza.cheese+'</span></p>' +
+                            '<p>Meat toppings: </p>' +
+                            '<ul class="pizza-list-meat-toppings"></ul>' +
+                            '<p>Veggie toppings: </p>' +
+                            '<ul class="pizza-list-veg-toppings"></ul>' +
+                          '</div>');
+  pizza.meatToppings.forEach(function(meatTopping) {
+    $('.pizza-list .pizza-list-meat-toppings').last().append('<li>'+meatTopping+'</li>');
+  });
+  pizza.vegToppings.forEach(function(vegTopping) {
+    $('.pizza-list .pizza-list-veg-toppings').last().append('<li>'+vegTopping+'</li>');
+  });
+}
 
 $(document).ready(function() {
   var customerOrder = new Order();
@@ -123,6 +138,7 @@ $(document).ready(function() {
     event.preventDefault();
     var thisPizza = createPizza();
     customerOrder.addPizza(thisPizza);
+    populatePizzaList(thisPizza);
     nextDiv('.order-pizza-input', '.order-summary');
   });
 
