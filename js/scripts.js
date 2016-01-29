@@ -46,6 +46,9 @@ function Order(customerName, customerAddress, customerPhone, customerCashCredit)
   this.customerCashCredit = customerCashCredit;
   this.pizzas = [];
 }
+Order.prototype.addPizza = function(pizza) {
+  this.pizzas.push(pizza);
+}
 
 
 

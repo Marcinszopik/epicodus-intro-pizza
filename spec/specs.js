@@ -51,5 +51,18 @@ describe('Order', function() {
     expect(testOrder.customerPhone).to.equal("720-555-5555");
     expect(testOrder.customerCashCredit).to.equal("cash");
     expect(testOrder.pizzas).to.eql([]);
-  })
-})
+  });
+  it('has a method that adds a pizza to the Order.pizzas array', function() {
+    var testOrder = new Order("Joe", "123 Main Street, Portland, 97214", "720-555-5555", "cash");
+    var testPizza = new Pizza("medium", "regular",[],[]);
+    testPizza.addVeg("green peppers");
+    testPizza.addVeg("onions");
+    testOrder.addPizza(testPizza);
+    expect(testOrder.pizzas[0]).to.equal(testPizza);
+    var testPizza2 = new Pizza("medium", "regular",[],[]);
+    testPizza.addMeat("pepperoni");
+    testPizza.addMeat("sausage");
+    testOrder.addPizza(testPizza2);
+    expect(testOrder.pizzas[1]).to.equal(testPizza2);
+  });
+});
