@@ -103,12 +103,14 @@ var resetPizzaForm = function() {
 }
 var populatePizzaList = function(pizza) {
   $('.pizza-list').append('<div class="pizza">' +
-                            '<h4><span class="pizza-list-size">'+pizza.pizzaSize+'</span></h4>' +
-                            '<p>Cheese: <span class="pizza-list-cheese">'+pizza.cheese+'</span></p>' +
-                            '<p>Meat toppings: </p>' +
-                            '<ul class="pizza-list-meat-toppings"></ul>' +
-                            '<p>Veggie toppings: </p>' +
-                            '<ul class="pizza-list-veg-toppings"></ul>' +
+                            '<h4><span class="pizza-list-size">One '+pizza.pizzaSize+' pizza</span></h4>' +
+                            '<div class="pizza-info-toggle">' +
+                              '<p>Cheese: <span class="pizza-list-cheese">'+pizza.cheese+'</span></p>' +
+                              '<p>Meat toppings: </p>' +
+                              '<ul class="pizza-list-meat-toppings"></ul>' +
+                              '<p>Veggie toppings: </p>' +
+                              '<ul class="pizza-list-veg-toppings"></ul>' +
+                            '</div>' +
                           '</div>');
   pizza.meatToppings.forEach(function(meatTopping) {
     $('.pizza-list .pizza-list-meat-toppings').last().append('<li>'+meatTopping+'</li>');
