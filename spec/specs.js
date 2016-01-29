@@ -65,4 +65,19 @@ describe('Order', function() {
     testOrder.addPizza(testPizza2);
     expect(testOrder.pizzas[1]).to.equal(testPizza2);
   });
+  it('has a method for removing a pizza from Order.pizzas array', function() {
+    var testOrder = new Order("Joe", "123 Main Street, Portland, 97214", "720-555-5555", "cash");
+    var testPizza = new Pizza("medium", "regular",[],[]);
+    testPizza.addVeg("green peppers");
+    testPizza.addVeg("onions");
+    testOrder.addPizza(testPizza);
+    var testPizza2 = new Pizza("medium", "regular",[],[]);
+    testPizza2.addMeat("pepperoni");
+    testPizza2.addMeat("sausage");
+    testOrder.addPizza(testPizza2);
+    testOrder.removePizza(1);
+    expect(testOrder.pizzas[0]).to.equal(testPizza2);
+    expect(testOrder.pizzas[1]).to.equal(undefined);
+  });
 });
+testOrder.addPizza(testPizza2);

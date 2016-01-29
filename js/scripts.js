@@ -49,7 +49,9 @@ function Order(customerName, customerAddress, customerPhone, customerCashCredit)
 Order.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza);
 }
-
+Order.prototype.removePizza = function(pizzaNumber) {
+  this.pizzas.splice(pizzaNumber-1,1);
+}
 
 
 // ================================
