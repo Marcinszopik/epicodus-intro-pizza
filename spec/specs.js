@@ -42,3 +42,14 @@ describe('Pizza', function() {
     expect(testPizza.cost).to.equal(12);
   });
 });
+
+describe('Order', function() {
+  it('creates an Order object with the correct properties', function() {
+    var testOrder = new Order("Joe", "123 Main Street, Portland, 97214", "720-555-5555", "cash");
+    expect(testOrder.customerName).to.equal("Joe");
+    expect(testOrder.customerAddress).to.equal("123 Main Street, Portland, 97214");
+    expect(testOrder.customerPhone).to.equal("720-555-5555");
+    expect(testOrder.customerCashCredit).to.equal("cash");
+    expect(testOrder.pizzas).to.eql([]);
+  })
+})

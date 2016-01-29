@@ -1,3 +1,8 @@
+// ================================
+//     Business Logic
+// ================================
+
+// Pizza Constructor, represents a single pizza
 function Pizza(pizzaSize, cheese, meatToppings, vegToppings) {
   this.pizzaSize = pizzaSize;
   this.cheese = cheese;
@@ -32,3 +37,18 @@ Pizza.prototype.refreshCost = function() {
   }
   this.cost = cost;
 }
+
+// Order Constructor, represents a customer order containing multiple pizzas
+function Order(customerName, customerAddress, customerPhone, customerCashCredit) {
+  this.customerName = customerName;
+  this.customerAddress = customerAddress;
+  this.customerPhone = customerPhone;
+  this.customerCashCredit = customerCashCredit;
+  this.pizzas = [];
+}
+
+
+
+// ================================
+//     User Interface Logic
+// ================================
