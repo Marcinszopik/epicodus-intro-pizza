@@ -10,3 +10,25 @@ Pizza.prototype.addMeat = function(meat) {
 Pizza.prototype.addVeg = function(veggie) {
   this.vegToppings.push(veggie);
 }
+Pizza.prototype.refreshCost = function() {
+  var cost = 0;
+  if (this.pizzaSize === "medium") {
+    cost = 9;
+  } else if (this.pizzaSize === "small") {
+    cost = 7;
+  } else if (this.pizzaSize === "large") {
+    cost = 11;
+  } else if (this.pizzaSize === "extra large") {
+    cost = 13;
+  }
+  this.meatToppings.forEach(function() {
+    cost += 1.25;
+  });
+  this.vegToppings.forEach(function() {
+    cost += 0.75;
+  });
+  if (this.cheese === "extra") {
+    cost += 1;
+  }
+  this.cost = cost;
+}
