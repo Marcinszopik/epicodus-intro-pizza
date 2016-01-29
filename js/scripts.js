@@ -90,8 +90,18 @@ var createPizza = function() {
   $('input[name="veg-toppings"]:checked').each(function() {
     newPizza.addVeg($(this).val());
   });
+  resetPizzaForm();
   return newPizza;
 }
+var resetPizzaForm = function() {
+  $('input[name="pie-size"]:checked').attr("checked", false);
+  $('input[value="medium"]').prop("checked", true);
+  $('input[name="cheese-options"]:checked').attr("checked", false);
+  $('input[value="regular"]').prop("checked", true);
+  $('input[name="meat-toppings"]:checked').attr("checked", false);
+  $('input[name="veg-toppings"]:checked').attr("checked", false);
+}
+
 
 $(document).ready(function() {
   var customerOrder = new Order();
@@ -105,15 +115,14 @@ $(document).ready(function() {
   $('.order-information-input form').submit(function(event) {
     event.preventDefault();
     customerOrder = createCustomerOrder();
-    console.log(customerOrder);
     nextDiv('.order-information-input', '.order-pizza-input');
   });
 
   // event handler for add pizza
   $('.order-pizza-input form').submit(function(event) {
     event.preventDefault();
-    var newPizza = createPizza();
-    customerOrder.addPizza(newPizza);
+    var thisPizza = createPizza();
+    customerOrder.addPizza(thisPizza);
     nextDiv('.order-pizza-input', '.order-summary');
   });
 
