@@ -7,3 +7,6 @@ function Pizza(pizzaSize, cheese, meatToppings, vegToppings) {
 Pizza.prototype.addMeat = function(meat) {
   this.meatToppings.push(meat);
 }
+Pizza.prototype.addVeg = function(veggie) {
+  this.vegToppings.push(veggie);
+}

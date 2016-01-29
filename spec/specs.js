@@ -13,4 +13,11 @@ describe('Pizza', function() {
     expect(testPizza.meatToppings[0]).to.equal("pepperoni");
     expect(testPizza.meatToppings[1]).to.equal("sausage");
   });
+  it('has a method for adding a veggie topping', function() {
+    var testPizza = new Pizza("medium", "regular",[],[]);
+    testPizza.addVeg("green peppers");
+    testPizza.addVeg("onions");
+    expect(testPizza.vegToppings[0]).to.equal("green peppers");
+    expect(testPizza.vegToppings[1]).to.equal("onions");
+  });
 });
