@@ -8,6 +8,7 @@ function Pizza(pizzaSize, cheese, meatToppings, vegToppings) {
   this.cheese = cheese;
   this.meatToppings = meatToppings;
   this.vegToppings = vegToppings;
+  // this.cost (created in the refreshCost method)
 }
 Pizza.prototype.addMeat = function(meat) {
   this.meatToppings.push(meat);
@@ -47,10 +48,18 @@ function Order(customerName, customerAddress, customerPhone, customerCashCredit)
   this.pizzas = [];
 }
 Order.prototype.addPizza = function(pizza) {
+  pizza.refreshCost();
   this.pizzas.push(pizza);
 }
 Order.prototype.removePizza = function(pizzaNumber) {
   this.pizzas.splice(pizzaNumber-1,1);
+}
+Order.prototype.determineTotalCost = function() {
+  var totalCost = 0;
+  this.pizzas.forEach(function(pizza) {
+    totalCost += pizza.cost;
+  });
+  this.totalCost = totalCost;
 }
 
 

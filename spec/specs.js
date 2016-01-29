@@ -79,5 +79,17 @@ describe('Order', function() {
     expect(testOrder.pizzas[0]).to.equal(testPizza2);
     expect(testOrder.pizzas[1]).to.equal(undefined);
   });
+  it('has a method that determines the total cost of the order', function() {
+    var testOrder = new Order("Joe", "123 Main Street, Portland, 97214", "720-555-5555", "cash");
+    var testPizza = new Pizza("medium", "regular",[],[]);
+    testPizza.addVeg("green peppers");
+    testPizza.addVeg("onions");
+    testOrder.addPizza(testPizza);
+    var testPizza2 = new Pizza("large", "regular",[],[]);
+    testPizza2.addMeat("pepperoni");
+    testPizza2.addMeat("sausage");
+    testOrder.addPizza(testPizza2);
+    testOrder.determineTotalCost();
+    expect(testOrder.totalCost).to.equal(24);
+  });
 });
-testOrder.addPizza(testPizza2);
