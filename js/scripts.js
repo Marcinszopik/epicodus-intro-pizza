@@ -117,6 +117,10 @@ var populatePizzaList = function(pizza) {
     $('.pizza-list .pizza-list-veg-toppings').last().append('<li>'+vegTopping+'</li>');
   });
 }
+var populateTotalPrice = function(customerOrder) {
+  customerOrder.determineTotalCost();
+  return customerOrder.totalCost;
+}
 
 $(document).ready(function() {
   var customerOrder = new Order();
@@ -139,6 +143,7 @@ $(document).ready(function() {
     var thisPizza = createPizza();
     customerOrder.addPizza(thisPizza);
     populatePizzaList(thisPizza);
+    $("#pizza-list-total-cost").text(populateTotalPrice(customerOrder));
     nextDiv('.order-pizza-input', '.order-summary');
   });
 
@@ -147,11 +152,13 @@ $(document).ready(function() {
     event.preventDefault();
     nextDiv('.order-summary', '.order-pizza-input');
   });
+
   // event handler for checkout order
   $('#checkout-order').click(function(event) {
     event.preventDefault();
     nextDiv('.order-summary', '.checked-out');
   });
+
   // event handler for new order/reset site
   $('#new-order').click(function(event) {
     event.preventDefault();
